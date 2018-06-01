@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>                                                                                   
+<html lang="en">
+<!--
+	Shows use of button.onclick callback function.
+-->
+
+	<head>
+		 <link REL="STYLESHEET" TYPE="text/css" HREF="style.css">
+		<meta charset="utf-8">
+		<title>Fifth JavaScript and Html Ex</title>
+<script>
+let whale = new arrayBranch("You are a Whale");
+let dolphin = new arrayBranch("You are a Dolphin");
+let next = new arrayBranch("Are you smart", dolphin, whale);
+
+let shrimp = new arrayBranch("You are a Shrimp");
+let seaHorse = new arrayBranch("You are a SeaHorse");
+let next2 = new arrayBranch("Are you commonly eaten at a fancy resturant", shrimp, seaHorse);
+
+let lastOcean = new arrayBranch("Are you a mammal?", next, next2);
+
+let cactus = new arrayBranch("You are a Cactus");
+let snake = new arrayBranch("You are a snake");
+let question2 = new arrayBranch("Are you a plant?", cactus, snake);
+
+
+
+let secondQuestion = new arrayBranch("Does your animal live in the ocean?", lastOcean, question2);
+
+let myCurrent = secondQuestion;
+
+let questionBox;
+let list;
+let remind;
+
+function arrayBranch(Question, pointer1 = NaN, pointer2 = NaN)
+{
+	this.parent = parent;
+	this.question = Question;
+	this.pointer1 = pointer1;
+	this.pointer2 = pointer2;
+	this.isAnswer = function(){return (isNaN(this.pointer1)&&isNaN(this.pointer2));};
+	this.getNext = function(answerIsYes){return (answerIsYes)?this.pointer1:this.pointer2;};
+}
+function init()
+{
+	var yes = document.getElementById("yes");
+	yes.onclick = handleYes;
+	var no = document.getElementById("no");
+	no.onclick = handleNo;
+	questionBox = document.getElementById("question");
+	questionBox.innerHTML = myCurrent.question;
+	list = document.getElementById("list");
+	remind = document.getElementById("reminder");
+}
+function handleYes()
+{
+	myCurrent = myCurrent.pointer1;
+	if(!myCurrent.isAnswer) return;
+	changeHTML(myCurrent.question);
+}
+function handleNo()
+{
+	myCurrent = myCurrent.pointer2;
+	if(!myCurrent.isAnswer) return;
+	changeHTML(myCurrent.question);
+}
+function changeHTML(stringer)
+{
+	questionBox.innerHTML = stringer;
+	list.innerHTML = "<br>";
+	reminder.innerHTML = "<br>";
+}
+window.onload = init;
+</script>
+	</head>
+	<body>
+<form>
+<h1 id = "list">Snake, Cactus, Whale, Dolphin, Shrimp, SeaHorse</h1>
+<h1 id = "reminder">Remember your animal!</h1>
+<p id = "question">Error</p>
+<input type="button" id="no" value="No"></input>
+<input type="button" id="yes" value="Yes"></input>
+<ul id="lister">
+
+</ul>
+</form>
+
+	</body>
+</html>

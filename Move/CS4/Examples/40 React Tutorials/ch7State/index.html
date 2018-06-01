@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <script src="../js/react.js"></script>
+    <script src="../js/react-dom.js"></script>
+    <script src="../js/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="container"></div>
+
+    <script type="text/babel">
+//State.  State can be changed unlike Properties.
+//In React it will auto redraw when state is changed.
+
+      class CheckBox extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {checked: true, count: 0};
+          this.handleChecked = this.handleChecked.bind(this);
+        }
+        handleChecked(event) {
+          this.setState({checked: !this.state.checked})
+        }
+        render() {
+          var msg;
+          if (this.state.checked) {
+            msg = "checked ";
+          } else {
+           msg = "unchecked ";
+          }
+          msg += this.state.count++;
+          return (
+            <div>
+              <input type="checkbox" onChange={this.handleChecked} defaultChecked={this.state.checked}/>
+              <h3>Checkbox is {msg}</h3>
+              <h3>Count is {this.state.count}</h3>
+            </div>
+          );
+        }
+      }
+
+      ReactDOM.render(
+        <CheckBox />,
+        document.getElementById('container')
+      );
+
+    </script>
+
+  </body>
+</html>

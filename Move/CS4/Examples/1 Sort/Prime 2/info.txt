@@ -1,0 +1,4 @@
+bring up command prompt and go to folder and type 
+node app.js
+bring up browser and type in url 
+localhost:3000

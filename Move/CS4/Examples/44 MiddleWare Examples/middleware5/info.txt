@@ -1,0 +1,24 @@
+
+bring up command window and type
+>npm install
+
+The above will create node_modules and download the
+modules from package.json and put in node_modules
+folder.
+
+in command window type
+>npm start   (because of package.json has
+              "start": node app)
+     or
+>node app.js
+
+
+bring up browser and type in url
+localhost:3000
+    or
+localhost:3000/throw
+    or
+localhost:3000/other
+
+will call the proper app.use with the correct params.
+

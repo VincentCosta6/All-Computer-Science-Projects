@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <script src="../js/react.js"></script>
+    <script src="../js/react-dom.js"></script>
+    <script src="../js/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="container"></div>
+
+    <script type="text/babel">
+//.
+      class Comment extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {editing: false};
+          this.edit = this.edit.bind(this);
+          this.remove = this.remove.bind(this);
+          this.save = this.save.bind(this);
+        }
+        edit() {
+          this.setState({editing: true});
+        }
+        remove() {
+          console.log("Removing comment");
+        }
+        save() {
+          var val = this.refs.newText.value;
+          console.log("New comment: " + val);
+          this.setState({editing: false});
+        }
+        renderNormal() {
+          return (
+            <div className="commentContainer">
+              <div className="commentContainer">{this.props.children}</div>
+              <button onClick={this.edit} className="button-primary">Edit</button>
+              <button onClick={this.remove} className="button-danger">Remove</button>
+            </div>
+          );
+        }
+        renderForm() {
+          return (
+            <div className="commentContainer">
+              <textarea ref="newText" defaultValue={this.props.children}></textarea>
+              <button onClick={this.save} className="button-success">Save</button>
+            </div>
+          );
+        }
+
+        render() {
+          if (this.state.editing){
+            return this.renderForm();
+          } else {
+            return this.renderNormal();
+          }
+
+        }
+      }
+
+
+      class Board extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {comments: ["I like bacon",
+                        "I want ice cream",
+                        "Lets get a drink"
+            ]};
+        }
+
+        removeComment(i) {
+          console.log("removing comment: " + i);
+          var arr = this.state.comments;
+          arr.splice(i, 1);
+          this.setState({comments: arr});
+        }
+
+        updateComment(newText,i) {
+          console.log("Updating comment");
+          var arr = this.state.comments;
+          arr[i] = newText;
+          this.setState({comments: arr});
+        }
+        eachComment(text,i) {
+          return(
+            <Comment key={i} index={i}>
+              {text}
+            </Comment>
+          );
+        }
+        render() {
+          return (
+            <div className="board">
+              {this.state.comments.map(this.eachComment)}
+            </div>
+          );
+        }
+
+      }
+
+      ReactDOM.render(
+        <Board />,      
+        document.getElementById('container')
+      );
+
+    </script>
+
+  </body>
+</html>

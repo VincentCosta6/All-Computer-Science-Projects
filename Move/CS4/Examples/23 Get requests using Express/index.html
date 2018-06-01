@@ -1,0 +1,36 @@
+<html>
+
+	<head>
+		<script type = "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<input id = "request" type = "button" value = "Request"/>
+		<input id = "another" type = "button" value = "Another"/>
+		<script type="text/javascript">
+			function sucess(data)
+			{
+				alert(data.name);
+			}
+			function sucess2(data)
+			{
+				alert(data.fred);
+			}
+			function requestClicked()
+			{
+				$.get("/request", sucess);
+				return false;
+			}
+			function anotherClicked()
+			{
+				$.get("/another", sucess2);
+				return false;
+			}
+			$(document).ready(function(){
+				$("#request").click(requestClicked);
+				$("#another").click(anotherClicked);
+			});
+		</script>
+
+	</body>
+
+</html>

@@ -1,0 +1,16 @@
+var mongoose = require("mongoose");
+
+var info = mongoose.model("info",{
+	ident: {
+		required: true,
+		unique: true,
+		type:Number
+	},
+	name: {
+    required:true,
+    unique:false,
+    type:String
+  }
+});
+
+module.exports = info;

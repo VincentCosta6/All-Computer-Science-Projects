@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="../js/react.js"></script>
+    <script src="../js/react-dom.js"></script>
+    <script src="../js/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+<!-- Below is using jsx -->
+
+
+<!--    <script type="text/babel">   -->
+    <script>
+
+//Create a component.
+//      var Bacon = React.createClass({
+//        render: function() {
+//Returns html.          
+//          return (<h2>This is a simple component.</h2>);
+//        }
+//      });
+
+//Create a component.
+      class Bacon extends React.Component {
+        render() {
+//Returns html.    
+//using jsx      
+//          return (<h2>This is a simple component.</h2>);
+//Not using jsx
+            return React.createElement('h2',null,'This is a simple component no jsx.')
+        }
+      }
+
+
+//Using jsx
+//      ReactDOM.render(
+//        <Bacon />,
+//        document.getElementById('root')
+//      );
+//Not using jsx
+      ReactDOM.render(
+        React.createElement(Bacon, null),
+        document.getElementById('root')
+      );
+
+
+    </script>
+
+  </body>
+</html>

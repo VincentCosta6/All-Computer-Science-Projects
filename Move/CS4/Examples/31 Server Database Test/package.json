@@ -1,0 +1,10 @@
+{
+  "name": "ClientServerTest",
+  "author": "Mr. Yee",
+  "private": true,
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "^4.16.2",
+    "routes": "^2.1.0"
+  }
+}

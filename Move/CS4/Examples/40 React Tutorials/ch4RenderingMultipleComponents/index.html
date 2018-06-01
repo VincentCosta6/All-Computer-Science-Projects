@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="../js/react.js"></script>
+    <script src="../js/react-dom.js"></script>
+    <script src="../js/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+<!-- Below is using jsx -->
+
+
+    <script type="text/babel">
+
+//Can only return 1 parent element.
+//      var Bacon = React.createClass({
+//        render: function() {
+//          return (
+//            <div>
+//            <h1>This is a h1.</h1>
+//            <h2>This is a h2.</h2>
+//            </div>
+//          );
+//        }
+//      });
+
+      class Bacon extends React.Component {
+        render() {
+          return (
+            <div>
+            <h1>This is a h1.</h1>
+            <h2>This is a h2.</h2>
+            </div>
+          );
+        }
+      }
+
+//Can only render 1 parent element.
+//      ReactDOM.render(
+//        <div><Bacon /><Bacon />
+//        <Bacon></Bacon></div>,
+//        document.getElementById('root')
+//      );
+
+      ReactDOM.render(
+        <div><Bacon /><Bacon />
+        <Bacon></Bacon></div>,
+        document.getElementById('root')
+      );
+
+    </script>
+
+  </body>
+</html>

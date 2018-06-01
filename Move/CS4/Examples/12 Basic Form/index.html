@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html>
+<!--
+	Shows use of forms.
+-->
+	<head>
+		<title>Second Forms Ex</title>
+		<script type = "text/javascript" src="jquery-3.3.1.min.js"></script>
+	</head>
+	<body>
+		<h1>A Basic Form</h1>
+		<hr>
+			<form action="#">
+				<fieldset>
+				<legend>Student Information</legend>
+					<div>
+						<fieldset>
+						<legend>General</legend>
+
+						<label for="username">Name:</label>
+						<input id="name" type="text" name="username" value="name">
+
+						<label for="birthdate">Birthdate:</label>
+						<input id="birth" type="date" name="birthdate" value="2000-01-01">
+
+						<label for="grade">Grade:</label>
+						<input id="grade" type="number" name="grade" value="10" min="9" max="12">
+
+						</fieldset>
+
+					</div>
+				<fieldset>
+					<legend>Contact</legend>
+
+						<div>
+
+						<label for="phone">Phone</label>
+						<input id="phone" type="text" name="phone" value="800-123-4567">
+						<br>
+						<br>
+
+						<label for="email">E-mail</label>
+						<input id = "email"type="email" name="email">
+
+
+
+                        </div>
+
+				</fieldset>
+				<fieldset>
+					<legend>Personal</legend>
+
+						<label for="residence">Residence</label>
+						<select id="residence" name="residence">
+							<option value="House">House</option>
+							<option value="Apartment">Apartment</option>
+							<option value="Cabin">Cabin</option>
+							<option value="Castle">Castle</option>
+						</select>					
+						<br>
+						<label for="driver">Driver License</label>
+						<input type="checkbox" id="driver" name="driver" value="driver">
+
+						<br>
+                        <div class = "eating">
+                        	Eating:
+							<input class = "eating" type="radio" id="vegan" name="eating" value="vegan">
+							<label for="vegan">Vegan</label>
+							<input class = "eating" type="radio" id="vegetarian" name="eating" value="vegetarian">
+							<label for="vegetarian">Vegetarian</label>
+							<input class = "eating" type="radio" id="omnivore" name="eating" value="omnivore" checked="checked" >
+							<label for="omnivore">Omnivore</label>
+ 							<input class = "eating" type="radio" id="carnivore" name="eating" value="carnivore">
+							<label for="carnivore">Carnivore</label>
+                        </div>
+				</fieldset>
+
+
+                        <div for="message">Comments</div>
+						<textarea name="comments" rows="5" cols="20">
+						</textarea>
+						<br>
+
+					<input id = "reset" type="button" value="Clear Form">						
+					<input id = "submit" type="button" value="Send Form">		
+
+					<table id = "table" border = "1">
+						<tr id = "headerInfo">
+							<th class = "header" value = "Name">Name</th>
+							<th class = "header" value = "Birthdate">Birthdate</th>
+							<th class = "header" value = "Grade">Grade</th>
+
+							<th class = "header" value = "Phone">Phone</th>
+							<th class = "header" value = "Email">Email</th>
+
+							<th class = "header" value = "Residence">Residence</th>
+							<th class = "header" value = "License">Has license</th>
+							<th class = "header" value = "Eating">Eating</th>
+						</tr>
+						<tr id = "info1">
+							
+						</tr>
+					</table>
+				</fieldset>
+			</form>
+			<script type = "text/javascript">
+				let name, birth,grade,phone,email, residence, driver, eating;
+
+				let submit;
+				let clear;
+
+				let table;
+
+				let entries = [6,2];
+				function init()
+				{
+					alert("Init");
+					submit = document.getElementById("submit");
+					clear = document.getElementById("reset");
+					submit.onclick = Submitter;
+					clear.onclick = Resetter;
+					alert(entries[0].size);
+					//eating = Document.getElementById("eating");
+				}
+				function Submitter()
+				{
+					alert("Submit");
+					name  = document.getElementById("name");
+					birth = document.getElementById("birth");
+					grade = document.getElementById("grade");
+					phone = document.getElementById("phone");
+					email = document.getElementById("email");
+				residence = document.getElementById("residence");
+				   driver = document.getElementById("driver");
+
+					/*let eat = document.getElementsByClassName("eating");
+					alert(eat.size);
+					let val;
+					for (var i = 0; i < eat.size; i++) {
+					  if(eat[i].checked)
+					  	val = eat[i];
+					}
+					alert(val.value);*/
+					table = document.getElementById("table");
+					//check for errors
+					for(let val = 0;val<entries.size;val++)
+					{
+						alert(entries[i][0]);
+						if(entries[i][0]===name)
+							alert("Found the data");
+					}
+					//append
+					let row = table.insertRow(table.size);
+					let cell1 = row.insertCell(0);
+					cell1.innerHTML = name.value;
+
+					let cell2 = row.insertCell(1);
+					cell2.innerHTML = birth.value;
+
+					let cell3 = row.insertCell(2);
+					cell3.innerHTML = grade.value;
+
+					let cell4 = row.insertCell(3);
+					cell4.innerHTML = phone.value;
+
+					let cell5 = row.insertCell(4);
+					cell5.innerHTML = email.value;
+
+					let cell6 = row.insertCell(5);
+					cell6.innerHTML = residence.value;
+
+					let cell7 = row.insertCell(6);
+					cell7.innerHTML = driver.checked;
+
+					entries[entries.size] = [cell1.innerHTML, cell2.innerHTML, cell3.innerHTML, cell4.innerHTML, cell5.innerHTML, cell6.innerHTML, cell7.innerHTML];
+
+				}
+
+				function Resetter()
+				{
+					alert("Clear");
+				}
+				window.onLoad = init();
+			</script>
+	</body>
+</html>
+
+
+
+

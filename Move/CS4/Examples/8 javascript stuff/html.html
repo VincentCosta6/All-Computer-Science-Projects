@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+	</head>
+	<body>
+		<div id = "myDiv">Look at this text</div>
+		<input type = "button" id ="button" value = "Click"> To Click </input>
+	</body>
+	<script type = "text/javascript">
+	function init()
+	{
+		var button = document.getElementById("button");
+		button.onclick = buttonclicker;
+	}
+	function buttonclicker()
+	{
+		console.log("Button clicked");
+	}
+	window.onLoad = init;
+	</script>
+</html>

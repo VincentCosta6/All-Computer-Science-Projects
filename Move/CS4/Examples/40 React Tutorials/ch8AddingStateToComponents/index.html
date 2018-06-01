@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <script src="../js/react.js"></script>
+    <script src="../js/react-dom.js"></script>
+    <script src="../js/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="container"></div>
+
+    <script type="text/babel">
+//State.
+
+      class Comment extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {editing: false};
+          this.edit = this.edit.bind(this);
+          this.remove = this.remove.bind(this);
+          this.save = this.save.bind(this);
+        }
+        edit() {
+          this.setState({editing: true});
+        }
+        remove() {
+          console.log("Removing comment");
+        }
+        save(){
+          this.setState({editing: false});
+        }
+        renderNormal() {
+          return (
+            <div className="commentContainer">
+              <div className="commentContainer">{this.props.children}</div>
+              <button onClick={this.edit} className="button-primary">Edit</button>
+              <button onClick={this.remove} className="button-danger">Remove</button>
+            </div>
+          );
+        }
+        renderForm() {
+          return (
+            <div className="commentContainer">
+              <textarea defaultValue={this.props.children}></textarea>
+              <button onClick={this.save} className="button-success">Save</button>
+            </div>
+          );
+        }
+
+        render() {
+          if (this.state.editing){
+            return this.renderForm();
+          } else {
+            return this.renderNormal();
+          }
+
+        }
+      }
+
+      ReactDOM.render(
+        <div className="board">
+        <Comment>Bucky Made This</Comment>        
+        <Comment>Bucky Made This Also</Comment>        
+        </div>,      
+        document.getElementById('container')
+      );
+
+    </script>
+
+  </body>
+</html>

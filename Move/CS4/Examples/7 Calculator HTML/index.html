@@ -1,0 +1,108 @@
+<html>
+	<head>
+	</head>
+	<body>
+		<input id = "first" type = "number" value = "0">
+		<select id="Selection" name="select">
+			<option selected="selected"value="ADD">ADD</option>
+			<option  value="SUBTRACT">SUBTRACT</option>
+			<option value="MULTIPLY">MULTIPLY</option>
+			<option value="DIVIDE">DIVIDE</option>
+			<option value="EXPONENT">EXPONENT</option>
+		</select>
+		<input id = "second" type = "number" value = "0">
+		<input id = "calc" type="button" value="Calculate">
+		<p id = "answer" value="Answer">Answer</p>
+		<script>
+		var log = function(s) {console.log(s)};
+
+let box1;
+let operation;
+let box2;
+let go;
+let answer;
+function init()
+{
+	box1 = document.getElementById("first");
+	operation = document.getElementById("Selection");
+	box2 = document.getElementById("second");
+	go = document.getElementById("calc");
+	go.onclick = goer;
+	answer = document.getElementById("answer");
+}
+function goer()
+{
+	let operation = document.getElementById("Selection");
+	let op = operation.options[operation.selectedIndex].value;
+	let temp;
+	switch(op+"")
+	{
+		case "ADD":
+			temp="+";
+			break;
+		case "SUBTRACT":
+			temp="-";
+			break;
+		case "MULTIPLY":
+			temp="*";
+			break;
+		case "DIVIDE":
+			temp="/";
+			break;
+		case "EXPONENT":
+			temp="^";
+			break;
+	}
+	answer.innerHTML = calc(box1.value+temp+box2.value, true);
+	box1.value = "";
+	box2.value = "";
+}
+function calc(data, returnString = false)
+{
+	var operation2 = ["+", "-", "*", "/","^"];
+	var operation = "";
+	var result;
+	var array;
+	for(var i=0;i<operation2.length;i++)
+	{
+		if(data.includes(operation2[i]))
+		{
+			operation = operation2[i];
+			array = data.split(operation2[i]);
+			break;
+		}
+	}
+	switch(operation)
+	{
+		case "+":
+			result = +array[0]+ +array[1];
+			return ((returnString)?(+array[0] + operation + +array[1] + "="+(result)):(result));
+		case "-":
+			result = +array[0]- +array[1];
+			return (returnString)?(+array[0] + operation + +array[1] + "="+(result)):(result);
+		case "*":
+			result = +array[0]* +array[1];
+			return (returnString)?(+array[0] + operation + +array[1] + "="+(result)):(result);
+		case "/":
+			result = +array[0]/ +array[1];
+			return (returnString)?(+array[0] + operation + +array[1] + "="+(result)):(result);
+		case "^":
+			result = exponent(+array[0],+array[1]);
+			return (returnString)?(+array[0] + operation + +array[1] + "="+(result)):(result);
+		default:
+			return "Operation not found! \'"+data+"\'";
+	}
+}
+function factorial(n) {
+  if (n === 0) 
+  	return 1;
+  return n * factorial(n - 1);
+}
+function exponent(value, pow)
+{
+	return Math.pow(value,pow);
+}
+window.onload = init;
+</script>
+	</body>
+</html>

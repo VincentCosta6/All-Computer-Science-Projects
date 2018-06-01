@@ -1,0 +1,11 @@
+middleware code that changes the response.
+
+In command window type
+node middleware.js
+
+Bring up browswer and in url type
+http://localhost:3000
+
+Bring up the  More Tools->Developer Tools->Console
+to see the error 403 when odd minute.
+

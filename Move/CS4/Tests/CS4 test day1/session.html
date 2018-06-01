@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $.get("/myName", success);
+        $("#log").click( () => {
+          $.post("/logout", logout);
+        });
+        $("#button1").click( () => {
+          if($("#name").val() == "")
+          {
+            alert("name cant be empty");
+            return;
+          }
+          if(!$("#id").val())
+          {
+            alert("ident cant be empty");
+            return;
+          }
+          $.post("/insert", {id:$("#id").val(), name: $("#name").val()}, success2);
+        });
+      });
+      function success(data)
+      {
+        $("#hello").html("Hello " + data.name);
+      }
+      function success2(data)
+      {
+        alert(data.status);
+      }
+      function logout(data)
+      {
+        window.location = "http://localhost:3000/";
+      }
+    </script>
+  </head>
+  <body>
+    <h1 id = "hello">Welcome NaN</h1><br>
+
+    <input id = "log" type="button" value="Log Out"/><br>
+
+    <label>Ident:</label>
+    <input id = "id"type="number" min = "0" name="ident"/><br>
+
+    <label>Name:</label>
+    <input id = "name" type="text" name="Name"/><br>
+
+    <input id = "button1" type="button" value="Create"/>
+    <select>
+      <option value="volvo">chris-paul</option>
+      <option value="saab">lebron-james</option>
+      <option value="mercedes">james-harden</option>
+    </select>
+  </body>
+</html>

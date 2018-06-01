@@ -1,0 +1,23 @@
+
+This does the same as notmiddleware0 but now uses middleware.
+
+Passive middleware code.  (doesn't change req or res)
+
+This example does use express and shows the concept of middleware.
+
+in command prompt type
+
+node middleware.js
+
+
+in browser type
+
+localhost:3000/
+
+localhost:3000/stuff
+
+localhost:3000/other
+
+
+
+

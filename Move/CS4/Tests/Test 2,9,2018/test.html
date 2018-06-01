@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<!--
+	Vincent Costa
+-->
+	<head>
+
+		<script type = "text/javascript" src = "jquery-3.3.1.min.js"></script>
+
+		
+		
+		<style>
+		table, th, td {border: 1px solid black;}
+		</style>
+
+		<title>Second Forms Ex</title>
+	</head>
+	<body>
+		<h1>A Basic Form</h1>
+		<hr>
+			<form action="#">
+						
+				<fieldset>
+
+						<div>
+						<legend>General</legend>
+
+						<label for="username">Name:</label>
+						<input id="username" type="text" name="username" value="name">
+
+						<label for="username">Rating:</label>
+						<input id = "rate"type = "number" max="10"min="0" value = "0" onchange = "changeSlider()"></input>
+
+						<input id="slider" type="range" name="slider" value="0" min = "0" max ="10" onchange = "changeNum()">
+
+						<label for="color">Color:</label>
+						<input id="color" type="color" name="color">
+
+						<input type="button" id="myimage" src="kingkong.gif" onclick="updateTable()">
+                        </div>
+
+				</fieldset>
+
+				
+									
+				<br>
+
+			<table id= "studentList" style="width:100%">
+			<tr>
+			<th>Name</th>
+			<th>Color</th>
+			<th>Slider</th>
+			</tr>
+
+
+
+			</table>
+
+<script>
+
+			function rgb2hex(rgb) {
+			    rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+			    function hex(x) {
+			        return ("0" + parseInt(x).toString(16)).slice(-2);
+			    }
+			    let array = [hex(rgb[1]), hex(rgb[2]), hex(rgb[3])];
+			    return array;
+			}
+			var rangeInput = document.getElementById("slider");
+			var buttonInput = document.getElementById("rate");
+
+			function changeSlider()
+			{
+				rangeInput.value = buttonInput.value;
+			}
+			function changeNum()
+			{
+				buttonInput.value = rangeInput.value;
+			}
+			function updateTable(){
+	        	var name = $("#username").val(); // find by id
+	        	if(name.trim().length !=0){
+		        	//var color = $("#color").val(); // hex value for color
+		        	var color = $("#color").css("color"); // rgb value for color
+		        	var slider = $("#slider").val();
+		        	//alert(color);
+		        	var isExistingName = false;
+		        	var passShort = false;
+		        	$("#studentList tr").each(function(index){
+		        		if(index!=0){
+		        			var existingName = $(this).find("td:eq(0)").html();
+		        			if(existingName == name){
+		        				isExistingName = true;
+		        				return;
+		        			}
+		        		}
+		        	});
+
+
+		        	if(isExistingName == false)
+		        	{
+		        		let values = rgb2hex(color);
+		        		if(values[0]===0&&values[1]===0&&values[2]===0)
+							alert("Black");
+			        	var row ="<tr><td>"+name+"</td>";
+			        		row +="<td>"+color+"</td>";
+			        		row +="<td>"+slider+"</td>";
+				        	$("#studentList tr:last").after(row);
+					}
+					else
+					{
+						alert("Name '"+name+"' already entered!");
+					}
+		        }
+		        else{
+		       		alert("Please insert a name");
+		        }
+		        $("#username").val("");
+			}
+		</script>
+			</form>
+	</body>
+</html>

@@ -1,0 +1,53 @@
+copy the passport project to finalTest.
+add node-rest-client to package.json and run npm install.
+copy sportsModule.js to the project.
+modify index.js with code from the webApi/webApi3 app.js
+
+add sports button to session.html
+add sports get request to sports callback in session.js
+add routesSession.js put into it the session routes.
+add proper code in index.js to use routesSession.js.
+
+add to routesSession.js code that would allow access to the sportsModule function sports.NBA.getActivePlayers().
+
+prevent selecting logout and having the go back button still allow being in a session.  It should go back to the login page.
+above is done by adding code to routesSession.js in get /sports request.
+================================
+make sure middleware is in place so 404 Not Found is displayed with invalid url.
+
+From RESTApi1 copy mongoDatabase.js to project.
+From RESTApi1 copy info.js to models folder.
+Add mongoose/MongoDB stuff from RESTapi1/index.js to this index.js
+Add routesData.js file.
+
+add Ident and Name edit box and Create button to session.html and add code for session.js
+
+------------
+
+Add a dropdown with the team names and when selecting the Sports button, have the
+player's names and height of the team be displayed.  Files changed are 
+sportModule.js, routesSession.js, session.html, and session.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

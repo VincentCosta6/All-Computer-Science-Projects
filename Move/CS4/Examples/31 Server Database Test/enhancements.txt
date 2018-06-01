@@ -1,0 +1,23 @@
+
+
+Access your server with port 3000 by entering localhost:3000 as the url.
+
+You must enter a valid index (0 and larger).
+You must enter a non-empty name for object.
+Color and rating can retain their default values or can have modified values.
+
+When you select the gorilla submit button, object, color, and rating need
+to be stored in an array on the server at the location of the chosen index.
+
+If you enter localhost:3000/info as the url, and put in a valid index and
+select the gorilla submit, then the object, color, and rating should be filled 
+in from the data of the matching index of the array that was stored on the server.
+
+The rating number and range should be in sync.
+
+
+
+
+
+
+

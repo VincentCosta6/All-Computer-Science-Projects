@@ -1,0 +1,15 @@
+var mongoose = require("mongoose");
+
+var User = mongoose.model("users",{
+	username : {
+		unique : true,
+		required : true,
+		type : String
+	},
+	password : {
+		type: String,
+		required : true
+	}
+});
+
+module.exports = User;

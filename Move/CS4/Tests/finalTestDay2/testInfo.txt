@@ -1,0 +1,36 @@
+======Day 1==============================================
+The server should be started by typing in a command prompt     node index.js
+
+have signup page    localhost:3000/signup
+have login page     localhost:3000/login
+localhost:3000 will show the login page
+
+The login page should have a signup hyperlink that will take you to the signup page.
+
+If you signup or login correctly, then you should
+go to the session page   localhost:3000/session
+
+The session page should display the user's name.
+
+The session page should have a logout button that when selected
+will end the session and take you to the login page.
+When logged out, you should not be able to get to the session page using localhost:3000/session
+If you hit the "go back" button, you will be able to go back to the session page,
+but selecting Create or Display should cause no action other than take you back to the login page.
+
+
+The database should be named testdb and the session database collection should be named users.
+
+The session page should have an ident and name text input
+that will add to a collection named infos when the Create
+button is selected.  An error alert dialog should be displayed
+if there is an invalid ident or name or if the ident has already
+been added to the collection.
+
+A drop-down should exist that has the hard coded player names
+chris-paul, lebron-james, and james-harden.
+
+A Display button should exist and when selected will display
+the first and last name of the player and the number of points the player scored in the 2017-2018 season.
+
+

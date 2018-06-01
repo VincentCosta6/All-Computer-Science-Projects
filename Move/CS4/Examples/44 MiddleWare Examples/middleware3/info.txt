@@ -1,0 +1,16 @@
+Third party middleware libraries.
+
+Add the third party module by typing at command prompt.
+
+npm install morgan --save
+
+
+
+In command window type
+node middleware.js
+
+Bring up browswer and in url type
+http://localhost:3000
+
+
+the logger output is actually displayed last.

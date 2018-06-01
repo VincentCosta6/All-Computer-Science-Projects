@@ -1,0 +1,30 @@
+
+bring up command window and type
+>npm install
+
+The above will create node_modules and download the
+modules from package.json and put in node_modules
+folder.
+
+in command window type
+>node route-example.js
+
+
+bring up browser and type in url one of the following
+localhost:3000
+     or
+localhost:3000/
+    does the same thing
+
+localhost:3000/about
+localhost:3000/weather
+localhost:3000/hello/earth
+localhost:3000/redirect_home
+localhost:3000/sendfile
+localhost:3000/thisWillCreateError
+localhost:3000/donothing
+
+
+
+
+

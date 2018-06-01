@@ -1,0 +1,25 @@
+This example does not use express and shows just the node request handler.
+
+===  is strict equality (checks is both value and type are the same)
+
+var x = 3;
+if (x === '3')    //false
+if (x == '3')     //true
+
+
+in command prompt type
+
+node notmiddleware.js
+
+
+in browser type
+
+localhost:3000/
+
+localhost:3000/stuff
+
+localhost:3000/other
+
+
+
+

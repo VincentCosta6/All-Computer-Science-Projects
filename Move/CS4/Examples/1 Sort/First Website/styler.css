@@ -1,0 +1,16 @@
+pTag {
+	font-family: Comic Sans MS;
+	font-weight: thick;
+	font-size: 24px;
+}
+div {
+	border-left: 24px;
+	font-family: Comic Sans MS;
+}
+p {
+	border-radius: 10px;
+	padding-left: 10px;
+	font-style: Arial;
+	font-variant: default;
+	border-left-style: relative;
+}

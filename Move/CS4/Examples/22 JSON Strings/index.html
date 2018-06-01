@@ -1,0 +1,33 @@
+<html>
+
+	<head>
+
+	</head>
+	<body>
+		<h1>Here is some stufffff</h1>
+		<script type="text/javascript">
+
+
+			//JSON uses name : value pairs. Name is the name of the object. Value is the value. So x:6 means variable x has a value of 6
+			let text = '{ "employees" : [' + 
+			'{ "firstName":"John", "lastName":"Doe" },' + 
+			'{ "firstName":"Anna", "lastName":"Smith" },' + 
+			'{ "firstName":"Peter", "lastName":"Parker" } ]}';
+
+			//this method parses a JSON format into a javascript object
+			let obj = JSON.parse(text);
+
+			alert("Hello " + obj.employees[0].lastName);
+
+			//Here we see a JSON format converted into a string
+			let obj2 = {x:5,y:6};
+			let str = JSON.stringify(obj2);
+			alert(str);
+
+			//Again this parses the JSON string into a javascript object
+			obj = JSON.parse(str);
+			alert("Hello " + obj.y);
+		</script>
+	</body>
+
+</html>

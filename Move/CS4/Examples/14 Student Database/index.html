@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<!--
+	Vincent
+-->
+	<head>
+
+		<script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+		<script>
+			
+			function update(){
+	        	var name = $("#username").val(); // find by id
+               
+	        	if(name.trim().length !=0){
+	        		var diet = $("input[type = radio][name = eating]:checked").val();
+		        	var birth = $("[name = 'birthdate']").val(); // find by attribute (name)
+		        	var grade = $("input[type=number]").val(); // find by type for an input
+		        	
+		        	
+		        	
+
+		        	var isExistingName = false;
+		        	$("#studentList tr").each(function(index){
+		        		if(index!=0){
+		        			var existingName = $(this).find("td:eq(0)").html();
+		        			if(existingName == name){
+		        				isExistingName = true;
+		        				return;
+		        			}
+		        		}
+		        	});
+		        	var isDriver = $("#driver").prop("checked");
+		        	var phone = $("#phone").val();
+		        	var email = $("[name = 'email']").val();
+		        	var residence = $("select#residence option:checked").val();
+		        	if(isExistingName == false){
+			        	var row ="<tr><td>"+name+"</td>";
+				        	row +="<td>"+birth+"</td>";
+				        	row +="<td>"+grade+"</td>";
+				        	row +="<td>"+phone+"</td>";
+				        	row +="<td>"+email+"</td>";
+				        	row +="<td>"+residence+"</td>";
+				        	row +="<td>"+isDriver+"</td>";
+				        	row +="<td>"+diet+"</td></tr>";
+				        	$("#studentList tr:last").after(row);
+					}
+					else{
+						alert("Name '"+name+"' already entered!");
+					}
+		        }
+		        else{
+		       		alert("Please insert a name");
+		        }
+			}
+			function clearTable()
+			{
+				let table = $("#studentList tr").each(
+					function(index){
+						$(index).remove();
+					});
+			}
+		</script>
+		
+		<style>
+		table, th, td {border: 1px solid black;}
+		</style>
+
+		<title>Second Forms Ex</title>
+	</head>
+	<body>
+		<h1>A Basic Form</h1>
+		<hr>
+			<form action="#">
+				<fieldset>
+				<legend>Student Information</legend>
+					<div>
+						<fieldset>
+						<legend>General</legend>
+
+						<label for="username">Name:</label>
+						<input id="username" type="text" name="username" value="name">
+
+						<label for="birthdate">Birthdate:</label>
+						<input id="birthdate" type="date" name="birthdate" value="2000-01-01">
+
+						<label for="grade">Grade:</label>
+						<input id="grade" type="number" name="grade" value="10" min="9" max="12">
+
+						</fieldset>
+
+					</div>
+				<fieldset>
+					<legend>Contact</legend>
+
+						<div>
+
+						<label for="phone">Phone</label>
+						<input id="phone" type="text" name="phone" value="800-123-4567">
+						<br>
+						<br>
+
+						<label for="email">E-mail</label>
+						<input type="email" name="email">
+
+
+
+                        </div>
+
+				</fieldset>
+				<fieldset>
+					<legend>Personal</legend>
+
+						<label for="residence">Residence</label>
+						<select id="residence" name="residence">
+							<option value="House">House</option>
+							<option value="Apartment">Apartment</option>
+							<option value="Cabin">Cabin</option>
+							<option value="Castle">Castle</option>
+						</select>					
+						<br>
+						<label for="driver">Driver License</label>
+						<input type="checkbox" id="driver" name="driver" value="driver">
+
+						<br>
+                        <div>
+                        	Eating:
+							<input type="radio" id="vegan" name="eating" value="vegan">
+							<label for="vegan">Vegan</label>
+							<input type="radio" id="vegetarian" name="eating" value="vegetarian">
+							<label for="vegetarian">Vegetarian</label>
+							<input type="radio" id="omnivore" name="eating" value="omnivore" checked="checked" >
+							<label for="omnivore">Omnivore</label>
+ 							<input type="radio" id="carnivore" name="eating" value="carnivore">
+							<label for="carnivore">Carnivore</label>
+                        </div>
+				</fieldset>
+
+
+                        <div for="message">Comments</div>
+						<textarea name="comments" rows="5" cols="20">
+						</textarea>
+						<br>
+
+					<input type="reset" name="reset" value="Clear Form" onclick="clearTable()">						
+					<input type="button" name="send" onclick="update()" value="Send Form">						
+
+				</fieldset>
+				<br>
+
+			<table id= "studentList" style="width:100%">
+			<tr>
+			<th>Name</th>
+			<th>Birthdate</th> 
+			<th>Grade</th>
+			<th>Phone</th>
+			<th>Email</th>
+			<th>Residence</th>
+			<th>is Driver</th>
+			<th>Eating</th>
+			</tr>
+
+
+
+			</table>
+
+			</form>
+	</body>
+</html>
